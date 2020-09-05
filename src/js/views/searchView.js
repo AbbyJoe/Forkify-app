@@ -31,7 +31,6 @@ const renderRecipes = recipe => {
                     <img src="${recipe.image_url}" alt="Test">
                 </figure>
                 <div class="results__data">
-const limitRecipeTitle = (title, limit = 17) => {
                     <h4 class="results__name">${limitRecipeTitle(recipe.title)}</h4>
                     <p class="results__author">${recipe.publisher}</p>
                 </div>
