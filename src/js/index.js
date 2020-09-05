@@ -14,12 +14,14 @@ const controlSearch = async () => {
         state.search = new Search(query)
 
         //prepare UI for results
+        searchView.clearInput();
+        searchView.clearResults();
 
         //search for recipes
         await state.search.getResults()
 
         //render to UI
-        console.log(state.search.result)
+        searchView.renderResults(state.search.result)
     }
 };
 if(elements.seacrhForm) {
