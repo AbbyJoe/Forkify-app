@@ -27,7 +27,7 @@ const renderRecipes = recipe => {
     const markUp = `
         <li>
             <a class="results__link" href="#${recipe.recipe_id}">
-                <figure class="results__fig">
+                <figure class="results__fig"> 
                     <img src="${recipe.image_url}" alt="Test">
                 </figure>
                 <div class="results__data">
@@ -39,6 +39,9 @@ const renderRecipes = recipe => {
         elements.searchResList.insertAdjacentHTML('beforeend', markUp)
 };
 
-export const renderResults = recipes => {
-    recipes.forEach(recipe => renderRecipes(recipe))
+export const renderResults = (recipes, page = 1, resPerPage = 10) => {
+    const start = (page -1) * resPerPage;
+    const end = page * resPerPage;
+
+    recipes.slice(start, end).forEach(recipe => renderRecipes(recipe))
 }
