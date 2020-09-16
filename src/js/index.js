@@ -40,6 +40,8 @@ if(elements.seacrhForm) {
         controlSearch();
     })
 }
+//TESTING
+
 
 elements.searchResPages.addEventListener('click', e => {
     const btn = e.target.closest('.btn-inline');
@@ -63,8 +65,9 @@ const  controlRecipe = async () => {
         state.recipe = new Recipe(id)
 
         try {
-            //get recipe data
-           await state.recipe.getRecipe()
+            //get recipe data and parse ingredient
+           await state.recipe.getRecipe();
+           state.recipe.parseIngredients()
             //calc serving and time
             state.recipe.calcTime();
             state.recipe.calcServings()
